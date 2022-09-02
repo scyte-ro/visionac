@@ -1631,7 +1631,8 @@ CWebhook = {
         ["amenulogs"] = "Admin Menu Logs",
         ["imagecache"] = "Image Cache",
         ["heartbeats"] = "Heartbeats",
-    }
+    },
+    timeouts = {}
 }
 
 CWebhook.get = function(webhook) return CConfig.settings.Webhooks[webhook] end
