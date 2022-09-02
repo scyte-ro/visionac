@@ -1,0 +1,432 @@
+{
+    "nolicense": {
+        "ro": "Licenta nu a putut fi identificata. Va rugam sa reinstalati anticheat-ul.",
+        "en": "License couldn't be identified. Please reinstall the anticheat."
+    },
+    "invalidlicense": {
+        "ro": "Licenta nu a putut fi verificata. Va rugam sa incercati in cateva minute. In cazul in care problema persista deschideti un tichet pe ^2https://scyte.ro/discord^0.",
+        "en": "The license couldn't be checked. Please try again in a few minutes. If the problem persists, open a ticket at ^2https://scyte.ro/discord^0."
+    },
+    "noconfig": {
+        "ro": "Configuratia nu a putut fi preluata. Va rugam sa incercati in cateva minute. In cazul in care problema persista deschideti un tichet pe ^2https://scyte.ro/discord^0.",
+        "en": "The configuration couldn't be retrieved. Please try again in a few minutes. If the problem persists, open a ticket at ^2https://scyte.ro/discord^0."
+    },
+    "noupdate": {
+        "ro": "Anticheat-ul nu a putut fi preluata. Va rugam sa incercati in cateva minute. In cazul in care problema persista deschideti un tichet pe ^2https://scyte.ro/discord^0.",
+        "en": "The latest version of the anticheat couldn't be retrieved. Please try again in a few minutes. If the problem persists, open a ticket at ^2https://scyte.ro/discord^0."
+    },
+    "serverstarted": {
+        "ro": "Pornire server.",
+        "en": "Server started."
+    },
+    "serverstarted_desc": {
+        "ro": "Server a fost pornit folosind versiunea `%s`.\n\n**Link-uri utile**\nObiecte: https://gta-objects.xyz/\nSupport: https://scyte.ro/discord",
+        "en": "Server started using version `%s`.\n\n**Useful links**\nObjects: https://gta-objects.xyz/\nSupport: https://scyte.ro/discord"
+    },
+    "invalid_webhook": {
+        "ro": "Webhook-ul introdus pentru categoria %s este invalid sau nu este functional temporar. Te rugam sa astepti cateva minute, iar daca problema persista verifica sa fie valid link-ul.",
+        "en": "The webhook entered for category %s is invalid or temporarily down. Please wait a few minutes, and if the problem persists, check if the link is valid." 
+    },
+    "antivpn": {
+        "ro": "Anti VPN",
+        "en": "Anti VPN"
+    },
+    "antivpn_desc": {
+        "ro": "Un nou jucator a fost detectat folosind VPN.",
+        "en": "A new player has been detected using VPN."
+    },
+    "playerban": {
+        "ro": "Ban",
+        "en": "Ban"
+    },
+    "playerban_desc": {
+        "ro": "Un nou jucator a fost banat pe server.\n\n**Ban ID:** `%s`\n**Motiv:** `%s`\n**Nume:** `%s`",
+        "en": "A new player has been banned from server.\n\n**Ban ID:** `%s`\n**Reason:** `%s`\n**Name:** `%s`"
+    },
+    "playerkick": {
+        "ro": "Kick",
+        "en": "Kick"
+    },
+    "playerkick_desc": {
+        "ro": "Un nou jucator a primit kick pe server.\n\n**Motiv:** `%s`\n**Nume:** `%s`",
+        "en": "A new player has been kicked from server.\n\n**Reason:** `%s`\n**Name:** `%s`"
+    },
+    "playerwarn": {
+        "ro": "Avertisment",
+        "en": "Warning"
+    },
+    "playerwarn_desc": {
+        "ro": "Un nou jucator a fost avertizat pe server.\n\n**Motiv:** `%s`\n**Nume:** `%s`",
+        "en": "A new player has been warned on server.\n\n**Reason:** `%s`\n**Name:** `%s`"
+    },
+    "playerconnect": {
+        "ro": "Conectare Jucator",
+        "en": "Player Connect"
+    },
+    "playerconnect_desc": {
+        "ro": "Nume: `%s` (||%s||)",
+        "en": "Name: `%s` (||%s||)"
+    },
+    "playerdisconnect": {
+        "ro": "Deconectare Jucator",
+        "en": "Player Disconnect"
+    },
+    "playerdisconnect_desc": {
+        "ro": "Nume: `%s` (||%s||)\nMotiv: ```%s```",
+        "en": "Name: `%s` (||%s||)\nReason: ```%s```"
+    },
+    "log_playerconnect": {
+        "ro": "^2%s^7 s-a conectat pe server. (IP: ^2%s^7)",
+        "en": "^2%s^7 connected on server. (IP: ^2%s^7)"
+    },
+    "log_playerdisconnect": {
+        "ro": "^1%s^7 s-a deconectat de pe server. (IP: ^1%s^7)",
+        "en": "^1%s^7 disconnected from server. (IP: ^1%s^7)"
+    },
+    "checking_vpn": {
+        "ro": "Verificam daca folositi VPN...",
+        "en": "Checking if you use VPN..."
+    },
+    "checking_name": {
+        "ro": "Verificam daca folositi un nume interzis...",
+        "en": "Checking if you use a blacklisted name..."
+    },
+    "checking_steam": {
+        "ro": "Verificam daca folositi Steam...",
+        "en": "Checking if you use Steam..."
+    },
+    "checking_discord": {
+        "ro": "Verificam daca folositi Discord...",
+        "en": "Checking if you use Discord..."
+    },
+    "ammo": {
+        "ro": "%d gloante",
+        "en": "%d bullets"
+    },
+    "vac_version": {
+        "ro": "Versiunea instalata pe serverul tau de VisionAC este ^2%s^0. (%s)",
+        "en": "Currently installed version on your server of VisionAC is ^2%s^0. (%s)"
+    },
+    "vac_newestversion": {
+        "ro": "Sunteti cu actualizarile la zi",
+        "en": "You're up to date with updates" 
+    },
+    "vac_needupdate": {
+        "ro": "Este nevoie de o actualizare la versiunea ^2%s^0",
+        "en": "An upgrade is required at version ^2%s^0"
+    },
+    "version_help": {
+        "ro": "Pentru a vedea versiunea VisionAC setata pe serverul tau.",
+        "en": "To see the VisionAC version installed on your server."
+    },
+    "ban_help": {
+        "ro": "Pentru a debana un jucator pe serverul tau.",
+        "en": "To unban a player from your server."
+    },
+    "checking_bans": {
+        "ro": "Verificam daca esti banat...",
+        "en": "Checking if you're banned..."
+    },
+    "global_ban": {
+        "ro": "Ai fost deconectat deoarece ai lag sau ai jucat cu cheat-uri.",
+        "en": "You've been disconnected because you have lag or played with cheats."
+    },
+    "invalid_ip": {
+        "ro": "Adresa IP a serverului dumneavoastra difera de cea setata pe ^2https://vision.scyte.ro^0. Va rugam sa o actualizati folosind urmatoarea adresa IP: ^2%s^0.",
+        "en": "The IP address of your server differs from the set one on ^2https://vision.scyte.ro^0. Please update it using the following IP address: ^2%s^0."
+    },
+    "invalid_ban": {
+        "ro": "Banul identificat de ID-ul ^2%s^0 nu exista.",
+        "en": "The ban identified by ID ^2%s^0 doesn't exists."
+    },
+    "unbanned": {
+        "ro": "Banul identificat de ID-ul ^2%s^0 a fost sters.",
+        "en": "The ban identified by ID ^2%s^0 has been deleted."
+    },
+    "reloadconfig_help": {
+        "ro": "Pentru a reincarca configuratia VisionAC.",
+        "en": "To reload the configuration of VisionAC."
+    },
+    "reloadedconfig": {
+        "ro": "Configuratia a fost reincarcata cu succes.",
+        "en": "The configuration has been reloaded succesfully."
+    },
+    "help_help": {
+        "ro": "Pentru a vedea lista comenzilor VisionAC.",
+        "en": "To see the commands list of VisionAC."
+    },
+    "commands_list_text": {
+        "ro": "Lista comenzilor VisionAC este urmatoarea:",
+        "en": "The list of VisionAC commands is the following:"
+    },
+    "player_warned": {
+        "ro": "Jucatorul ^2%s^0 a fost avertizat pentru ^2%s^0.",
+        "en": "Player ^2%s^0 has been warned for ^2%s^0."
+    },
+    "player_kicked": {
+        "ro": "Jucatorul ^2%s^0 a primit kick pentru ^2%s^0.",
+        "en": "Player ^2%s^0 has been kicked for ^2%s^0."
+    },
+    "player_banned": {
+        "ro": "Jucatorul ^2%s^0 a fost banat pentru ^2%s^0. (Ban ID: ^2%s^0)",
+        "en": "Player ^2%s^0 has been banned for ^2%s^0. (Ban ID: ^2%s^0)"
+    },
+    "noglobalbans": {
+        "ro": "Nu am putut prelua ban-urile globale.",
+        "en": "We couldn't fetch global bans."
+    },
+    "vehicle_admin_menu": {
+        "ro": "Vehicul",
+        "en": "Vehicle"
+    },
+    "invalid_model_admin_menu": {
+        "ro": "Modelul de vehicul '%s' este invalid.",
+        "en": "Vehicle model '%s' is invalid."
+    },
+    "vehicle_spawned_admin_menu": {
+        "ro": "Ai spawnat cu succes un '%s'.",
+        "en": "You've succesfully spawned a '%s'."
+    },
+    "vehicle_repaired_admin_menu": {
+        "ro": "Vehiculul a fost reparat cu succes.",
+        "en": "Vehicle has been fixed succesfully."
+    },
+    "vehicle_deleted_admin_menu": {
+        "ro": "Vehiculul a fost sters cu succes.",
+        "en": "Vehicle has been deleted succesfully."
+    },
+    "vehicle_tunned_admin_menu": {
+        "ro": "Vehiculul a fost tunat la maxim cu succes.",
+        "en": "Vehicle has been max tunned succesfully."
+    },
+    "no_vehicle_admin_menu": {
+        "ro": "Nu te aflii intr-un vehicul.",
+        "en": "You're not in any vehicle."
+    },
+    "weapon_admin_menu": {
+        "ro": "Arme",
+        "en": "Weapons"
+    },
+    "weapon_invalid_admin_menu": {
+        "ro": "Modelul armei introduse este invalid.",
+        "en": "The given weapon model is invalid."
+    },
+    "weapon_given_admin_menu": {
+        "ro": "Ai dat cu succes '%s'.",
+        "en": "You gave successfully '%s'."
+    },
+    "weapon_remove_all_admin_menu": {
+        "ro": "Ai sters toate armele cu succes.",
+        "en": "You've succesfully removed all weapons."
+    },
+    "weapon_give_all_admin_menu": {
+        "ro": "Ai dat cu succes toate armele.",
+        "en": "You've succesfully gave all weapons."
+    },
+    "unban_success_admin_menu": {
+        "ro": "Banul identificat de ID-ul '%s' a fost sters.",
+        "en": "The ban identified by ID '%s' has been deleted."
+    },
+    "unban_failed_admin_menu": {
+        "ro": "Banul identificat de ID-ul '%s' nu exista.",
+        "en": "The ban identified by ID '%s' doesn't exists."
+    },
+    "unban_admin_menu": {
+        "ro": "Ban",
+        "en": "Ban"
+    },
+    "unbanned_all": {
+        "ro": "Au fost debanati ^2%d^0 jucatori de pe server.",
+        "en": "^2%d^0 players have been unbanned from server."
+    },
+    "startup_message": {
+        "ro": "VisionAC a pornit si configuratia a fost incarcata cu ^2succes^0.",
+        "en": "VisionAC started and the configuration was successfully ^2loaded^0."
+    },
+    "area_peds_title_admin_menu": {
+        "ro": "Sterge Ped-urile",
+        "en": "Clear Peds"
+    },
+    "area_peds_admin_menu": {
+        "ro": "Toate ped-urile din apropiere au fost sterse.",
+        "en": "All nearby peds have been deleted."
+    },
+    "area_objects_title_admin_menu": {
+        "ro": "Sterge Obiecte",
+        "en": "Clear Objects"
+    },
+    "area_objects_admin_menu": {
+        "ro": "Toate obiectele din apropiere au fost sterse.",
+        "en": "All nearby objects have been deleted."
+    },
+    "delete_vehicles_admin_menu": {
+        "ro": "Stergere vehicule",
+        "en": "Delete Vehicles"
+    },
+    "delete_unused_vehicles_admin_menu": {
+        "ro": "Toate vehiculele nefolosite au fost sterse.",
+        "en": "All unused vehicles have been deleted."
+    },
+    "delete_all_vehicles_admin_menu": {
+        "ro": "Toate vehiculele au fost sterse.",
+        "en": "All vehicles have been deleted."
+    },
+    "kick_player_admin_menu": {
+        "ro": "Kick",
+        "en": "Kick"
+    },
+    "kick_player_body_admin_menu": {
+        "ro": "%s a primit kick.",
+        "en": "%s has been kicked."
+    },
+    "ban_player_admin_menu": {
+        "ro": "Ban",
+        "en": "Ban"
+    },
+    "ban_player_body_admin_menu": {
+        "ro": "%s a primit ban.",
+        "en": "%s has been banned."
+    },
+    "waypoint_admin_menu": {
+        "ro": "Waypoint",
+        "en": "Waypoint"
+    },
+    "waypoint_error_admin_menu": {
+        "ro": "Nu este setat niciun waypoint pe harta.",
+        "en": "There is no waypoint set on the map."
+    },
+    "teleport_player_admin_menu": {
+        "ro": "Teleport",
+        "en": "Teleport"
+    },
+    "teleport_player_body_admin_menu": {
+        "ro": "Te-ai teleportat la %s.",
+        "en": "You have been teleported to %s"
+    },
+    "freeze_player_admin_menu": {
+        "ro": "Ingheata",
+        "en": "Freeze"
+    },
+    "freeze_player_body_admin_menu": {
+        "ro": "%s a fost inghetat/dezghetat cu succes.",
+        "en": "%s has been succesfully frozen/unfrozen."
+    },
+    "admin_log_veh_title": {
+        "ro": "Vehicul",
+        "en": "Vehicle"
+    },
+    "admin_log_veh_message": {
+        "ro": "Un vehicul de tip `%s` a fost creat de catre `%s`. (`%s`)",
+        "en": "A vehicle of type `%s` has been created by `%s`. (`%s`)"
+    },
+    "admin_log_veh_fix": {
+        "ro": "Vehiculul de tip `%s` a fost reparat de catre `%s`. (`%s`)",
+        "en": "Vehicle of type `%s` has been repaired by `%s`. (`%s`)"
+    },
+    "admin_log_veh_delete": {
+        "ro": "Vehiculul de tip `%s` a fost sters de catre `%s`. (`%s`)",
+        "en": "Vehicle of type `%s` has been deleted by `%s`. (`%s`)"
+    },
+    "admin_log_wwp_title": {
+        "ro": "Arme",
+        "en": "Weapon"
+    },
+    "admin_log_wwp_give": {
+        "ro": "Arma `%s` a fost creata pentru `%s`. (`%s`)",
+        "en": "Weapon `%s` has been created for `%s`. (`%s`)"
+    },
+    "admin_log_freeze_title": {
+        "ro": "Freeze",
+        "en": "Freeze"
+    },
+    "admin_log_freeze": {
+        "ro": "`%s` a primit freeze/unfreeze de la `%s`. (`%s`)",
+        "en": "`%s` has been frozen/unfrozen by `%s`. (`%s`)"
+    },
+    "admin_log_wwp_take": {
+        "ro": "%s`%s` (`%s`) si-a sters armele.",
+        "en": "%s`%s` (`%s`) deleted his weapons."
+    },
+    "admin_log_wwp_giveall": {
+        "ro": "%s`%s` (`%s`) si-a dat toate armele.",
+        "en": "%s`%s` (`%s`) gave himself all weapons."
+    },
+    "admin_log_peds_remove": {
+        "ro": "%s`%s` (`%s`) a scos ped-urile din apropiere.",
+        "en": "%s`%s` (`%s`) removed all nearby peds."
+    },
+    "admin_log_objects_remove": {
+        "ro": "%s`%s` (`%s`) a scos obiectele din apropiere.",
+        "en": "%s`%s` (`%s`) removed all nearby objects."
+    },
+    "blips_title_admin_menu": {
+        "ro": "Blips",
+        "en": "Blips"
+    },
+    "blips_admin_menu": {
+        "ro": "Ai activat/dezactivat cu succes blips-urile.",
+        "en": "You've succesfully activated/deactivated blips."
+    },
+    "admin_menu": {
+        "ro": {
+            "NavSelf": "Self",
+            "NavPlayers": "Jucatori",
+            "NavAdministration": "Administrare",
+
+            "SelfVehicleOptions": "Optiuni Vehicule",
+            "SelfWeaponOptions": "Optiuni Arme",
+            "SelfPlayerOptions": "Optiuni Jucator",
+
+            "SelfVehicleSpawnTitle": "Creeaza Masina",
+            "SelfVehicleNameInput": "Nume Vehicul (Model)",
+            "SelfVehicleSpawnButton": "Creeaza",
+
+            "SelfVehicleOptionsTitle": "Optiuni Vehicul",
+            "SelfVehicleOptionsFix": "Repara Vehicul",
+            "SelfVehicleOptionsDelete": "Sterge Vehicul",
+
+            "SelfWeaopnOptionsTitle": "Creeaza Arma",
+            "SelfWeaponModelTitle": "Model Arma",
+            "SelfWeaponGiveButton": "Creeaza",
+
+            "SelfWeaponOptionsTitle": "Optiuni Arma",
+            "SelfWeaponOptionsGiveAll": "Creeaza toate Armele",
+            "SelfWeaponOptionsRemoveAll": "Sterge toate Armele",
+
+            "SelfHealthOptionsTitle": "Optiuni Viata",
+            "SelfHealthOptionsHealth": "Da Viata",
+            "SelfHealthOptionsArmor": "Da Armura",
+
+            "SelfPlayerOthersTitle": "Altele",
+            "SelfPlayerOtherSuicide": "Sinucide-te",
+            "SelfPlayerOtherTeleport": "Teleporteaza-te la Waypoint",
+            "SelfPlayerOtherBlips": "Blips",
+
+            "PlayersInfo": "Informatii",
+            "PlayersWeapons": "Arme",
+            "PlayersVehicles": "Vehicule",
+            "PlayersOptions": "Optiuni",
+
+            "PlayersInfoIdentifiers": "Identifiers",
+
+            "OptionsAdministrationTitle": "Administrare",
+
+            "OptionsOthersTitle": "Altele",
+            "OptionsOthersSpectate": "Spectate",
+            "OptionsOthersTeleport": "Teleport",
+            "OptionsOthersFreeze": "Ingheata",
+
+            "AdministrationPlayersBanned": "Jucatori Banati",
+            "AdministrationEntities": "Entitati",
+
+            "EntitiesVehicleCleanTitle": "Optiuni de curatare a vehiculului",
+            "EntitiesVehicleUnused": "Vehicule Nefolosite",
+            "EntitiesVehicleAll": "Toate Vehiculele",
+
+            "EntitiesAreaCleanTitle": "Optiuni de curatare a zonei",
+            "EntitiesAreaCleanPeds": "Curata zona de Peds",
+            "EntitiesAreaCleanObjects": "Curata zona de Obiecte"
+        },
+        "en": {}
+    }
+}

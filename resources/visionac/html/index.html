@@ -1,0 +1,344 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "https://unpkg.com/@citizenfx/three@0.100.0/build/three.module.js"
+				}
+			}
+		</script>
+		<script src="./tailwind.js"></script>
+		<script type="module" src="./index.js"></script>
+		<link rel="stylesheet" href="https://kit-pro.fontawesome.com/releases/v6.1.1/css/pro.min.css">
+		<link rel="stylesheet" href="./simple-notify.min.css" />
+		<script src="./simple-notify.min.js"></script>
+		<style>@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');*,body {font-family: 'Poppins';color: white;}*::-webkit-scrollbar {display: none;}* {-ms-overflow-style: none;scrollbar-width: none;}.vision-logo-big {-webkit-animation: action 1s infinite  alternate;animation: action 1s infinite  alternate;}@-webkit-keyframes action {0% { transform: translateY(0); }100% { transform: translateY(-10px); }}@keyframes action {0% { transform: translateY(0); }100% { transform: translateY(-10px); }}</style>
+		<style>
+			.vac-notification {
+				background-color: #1b2430;
+				--notify-error: #eb5757;
+				--notify-success: #6fcf97;
+				--notify-warning: #f2c94c;
+				--notify-gray: #fff;
+				--notify-gray-2: #fff;
+  				--notify-gray-3: #fff;
+				--notify-white: #fff;
+				--notify-white-2: rgba(255, 255, 255, 0.8);
+				--notify-padding: 0.75rem;
+				--notify-icon-size: 32px;
+				--notify-close-icon-size: 16px;
+			}
+		</style>
+    </head>
+    <body style="width: 100%; height: 100%;">
+        <style>.fade-enter {opacity: 0;transform: translate(0, 25px);z-index: 1;}.fade-enter.fade-enter-active {opacity: 1;transform: translate(0, 0);transition: opacity 350ms ease-out, transform 500ms ease;}.fade-exit {opacity: 1;transform: translate(0, 0);}.fade-exit.fade-exit-active {opacity: 0;transform: translate(0, 30px);transition: opacity 350ms ease-out, transform 500ms ease;}</style>
+		<div id="adminApp" class="hidden">
+            <div class="h-3/5 w-7/12 rounded-lg shadow bg-gradient-to-b from-gray-800 to-gray-900 flex flex-col items-center fixed" style="top: 50%; left: 50%; transform: translate(-50%, -50%); overflow-y:scroll; overflow-x: hidden">
+				<nav class="w-full rounded-t-lg">
+					<div class="w-full rounded-t-lg bg-gray-800 shadow-md overflow-hidden mt-0 fixed top-0 flex justify-center">
+						<img src="https://cdn.scyte.ro/images/vision/vision_logo.png" width="260" style="max-width:260px"/>
+					</div>
+					<div class="w-full shadow overflow-x-auto fixed top-0 flex justify-center" style="background-color: #1b2430;margin-top: 4.3rem">
+						<div class="flex items-center text-sm mx-auto px-2" style="max-width: 1200px;">
+							<div name="Nav" data-translate="NavSelf" data-section="Self" id="NavSelf" class="inline-block py-3 px-4 text-gray-300 no-underline whitespace-nowrap transition-all duration-150 cursor-pointer subnav-item active">Self</div>
+							<div name="Nav" data-translate="NavPlayers" data-section="Players" id="NavPlayers" class="inline-block py-3 px-4 text-gray-300 no-underline whitespace-nowrap transition-all duration-150 ml-2 cursor-pointer subnav-item">Players</div>
+							<div name="Nav" data-translate="NavAdministration" data-section="Administration" id="NavAdministration" class="inline-block py-3 px-4 text-gray-300 no-underline whitespace-nowrap transition-all duration-150 ml-2 cursor-pointer subnav-item">Administration</div>
+
+							<style>
+								.subnav-item:hover {
+									color: rgb(243 244 246);
+								}
+
+								.subnav-item.active {
+									color: rgb(243 244 246);
+								}
+							</style>
+						</div>
+					</div>
+				</nav>
+
+				<section id="Self" class="w-full bg-transparent flex flex-row" style="margin-top: 9rem">
+					<div class="w-56 h-fit ml-32 p-2.5 rounded-lg flex justify-center flex-col" style="background-color: #1b2430; box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);">
+						<div name="Options" data-translate="SelfVehicleOptions" data-section="Vehicle" class="w-52 h-fit p-1 rounded-lg text-center text-gray-300 cursor-pointer category-item active">
+							Vehicle Options
+						</div>
+
+						<div name="Options" data-translate="SelfWeaponOptions" data-section="Weapon" class="w-52 h-fit mt-1 p-1 rounded-lg text-center text-gray-300 cursor-pointer category-item">
+							Weapon Options
+						</div>
+
+						<div name="Options" data-translate="SelfPlayerOptions" data-section="Player" class="w-52 h-fit mt-1 p-1 rounded-lg text-center text-gray-300 cursor-pointer category-item">
+							Player Options
+						</div>
+
+						<style>
+							.category-item:hover {
+								color: rgb(243 244 246);
+							}
+
+							.category-item.active {
+								color: rgb(243 244 246);
+								background-color: rgb(31 41 55);
+							}
+						</style>
+						<script>
+							function unbanUser(banid) {
+								fetch(`https://${GetParentResourceName()}/adminUnbanPlayer`, {
+									method: 'POST',
+									mode: 'cors',
+									body: JSON.stringify({
+										admin: true,
+										banid: banid
+									})
+								}).catch((errs) => {})
+							}
+						</script>
+					</div>
+
+					<section id="Vehicle" class="w-full ml-10 flex flex-col justify-start">
+						<div>
+							<p class="text-left" data-translate="SelfVehicleSpawnTitle">Vehicle Spawn</p>
+							<hr style="width: 35.158rem"/>
+							<br/>
+							<label class="block text-sm text-gray-200 mb-1 sm:mb-2 font-medium" data-translate="SelfVehicleNameInput">Vehicle Name (Model)</label>
+							<input id="VehicleModel" class="max-w-[30rem] bg-white border-gray-200 text-gray-800 focus:border-gray-400 disabled:bg-gray-100 disabled:border-gray-200 disabled:opacity-75 focus:shadow-md focus:border-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 appearance-none outline-none w-full min-w-0 p-3 border-2 rounded text-sm transition-all duration-150 shadow-none focus:ring-0" type="text" name="Vehicle" id="vehicle-name" placeholder="Vehicle Name">
+							<input id="VehicleSpawn" data-translate="SelfVehicleSpawnButton" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Spawn">
+						</div>
+
+						<br/>
+						<br/>
+
+						<div>
+							<p class="text-left" data-translate="SelfVehicleOptionsTitle">Vehicle Options</p>
+							<hr style="width: 35.158rem"/>
+							<br/>
+							<input id="VehicleFix" style="width: 15.46952rem" data-translate="SelfVehicleOptionsFix" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Fix Current Vehicle">
+							<input id="VehicleDestroy" style="margin-left: 3.935rem; width: 15.46952rem" data-translate="SelfVehicleOptionsDelete" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Delete Current Vehicle">
+						</div>
+					</section>
+
+					<section id="Weapon" class="w-full ml-10 flex flex-col justify-start hidden">
+						<div>
+							<p class="text-left" data-translate="SelfWeaopnOptionsTitle">Give Weapon</p>
+							<hr style="width: 35.158rem"/>
+							<br/>
+							<label class="block text-sm text-gray-200 mb-1 sm:mb-2 font-medium" data-translate="SelfWeaponModelTitle">Weapon Model</label>
+							<input id="WeaponModel" class="max-w-[30rem] bg-white border-gray-200 text-gray-800 focus:border-gray-400 disabled:bg-gray-100 disabled:border-gray-200 disabled:opacity-75 focus:shadow-md focus:border-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 appearance-none outline-none w-full min-w-0 p-3 border-2 rounded text-sm transition-all duration-150 shadow-none focus:ring-0" type="text" name="Weapon" id="weapon-model" placeholder="Weapon Model">
+							<input id="WeaponGive" data-translate="SelfWeaponGiveButton" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Give">
+						</div>
+
+						<br/>
+						<br/>
+
+						<div>
+							<p class="text-left" data-translate="SelfWeaponOptionsTitle">Weapon Options</p>
+							<hr style="width: 35.158rem"/>
+							<br/>
+							<input id="WeaponGiveAll" data-translate="SelfWeaponOptionsGiveAll" style="width: 15.46952rem" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Give All Weapons">
+							<input id="WeaponTakeAll" data-translate="SelfWeaponOptionsRemoveAll" style="margin-left: 3.935rem; width: 15.46952rem" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Remove All Weapons">
+						</div>
+					</section>
+
+					<section id="Player" class="w-full ml-10 flex flex-col justify-start hidden">
+						<div>
+							<p class="text-left" data-translate="SelfHealthOptionsTitle">Health Options</p>
+							<hr style="width: 35.158rem"/>
+							<br/>
+							<input id="GiveHealth" data-translate="SelfHealthOptionsHealth" style="width: 15.46952rem" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Give Health">
+							<input id="GiveArmor" data-translate="SelfHealthOptionsArmor" style="margin-left: 3.935rem; width: 15.46952rem" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Give Armor">
+						</div>
+
+						<br/>
+						<br/>
+						
+						<div>
+							<p class="text-left" data-translate="SelfPlayerOthersTitle">Others</p>
+							<hr style="width: 35.158rem"/>
+							<br/>
+							<input id="Suicide" data-translate="SelfPlayerOtherSuicide" style="width: 15.46952rem" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Suicide">
+							<input id="TeleportToWaypoint" data-translate="SelfPlayerOtherTeleport" style="margin-left: 3.935rem; width: 15.46952rem" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Teleport to Waypoint">
+							<br/>
+							<br/>
+							<input id="Blips" data-translate="SelfPlayerOtherBlips" style="width: 15.46952rem" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Blips">
+							<br/>
+							<br/>
+						</div>
+					</section>
+				</section>
+
+				<section id="Players" class="w-full bg-transparent flex flex-row hidden" style="margin-top: 9rem">
+					<div id="PlayerLists" class="w-full flex flex-row justify-center">
+						<div id="_players_" class="p-5 rounded-lg flex flex-col" style="background-color: #1b2430; box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);">
+						</div>
+					</div>
+
+					<div id="PlayerListMenu" class="w-full flex flex-row hidden">
+						<div class="w-56 h-fit ml-32 p-2.5 rounded-lg flex justify-center flex-col" style="background-color: #1b2430; box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);">
+							<div name="PlayerListMenuOptions" data-translate="PlayerInfo" class="w-52 h-fit p-1 rounded-lg text-center text-gray-300 cursor-pointer category-item active" data-section="Info">
+								Info
+							</div>
+
+							<div name="PlayerListMenuOptions" data-translate="PlayersWeapons" class="w-52 h-fit mt-1 p-1 rounded-lg text-center text-gray-300 cursor-pointer category-item" data-section="Weapons">
+								Weapons
+							</div>
+
+							<div name="PlayerListMenuOptions" data-translate="PlayersVehicles" class="w-52 h-fit mt-1 p-1 rounded-lg text-center text-gray-300 cursor-pointer category-item" data-section="Vehicles">
+								Vehicles
+							</div>
+	
+							<div name="PlayerListMenuOptions" data-translate="PlayersOptions" class="w-52 h-fit mt-1 p-1 rounded-lg text-center text-gray-300 cursor-pointer category-item" data-section="Options">
+								Options
+							</div>
+
+							<div name="PlayerListMenuOptions" class="w-52 h-fit mt-1 p-1 rounded-lg text-center text-gray-300 cursor-pointer category-item bg-green-600" data-execute="GoBack">
+								<i class="fas fa-circle-arrow-left"></i>
+							</div>
+	
+							<style>
+								.category-item:hover {
+									color: rgb(243 244 246);
+								}
+	
+								.category-item.active {
+									color: rgb(243 244 246);
+									background-color: rgb(31 41 55);
+								}
+							</style>
+						</div>
+
+						<style>
+							input:checked ~ .dot {
+								transform: translateX(137%);
+							}
+							input:checked ~ .track {
+								background-color: rgb(22 163 74);
+							}
+						</style>
+
+						<section id="Info" class="w-full ml-10 flex flex-col justify-start">
+							<div id="IdentifiersList" class="w-11/12 flex flex-row justify-center">
+								<div id="_identifiers_" class="p-5 rounded-lg flex flex-col" style="background-color: #1b2430; box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);">
+								</div>
+							</div>
+						</section>
+
+						<section id="Weapons" class="w-full ml-10 flex flex-col justify-start hidden">
+							<div>
+								<p class="text-left" data-translate="SelfWeaopnOptionsTitle">Give Weapon</p>
+								<hr style="width: 35.158rem"/>
+								<br/>
+								<label class="block text-sm text-gray-200 mb-1 sm:mb-2 font-medium" data-translate="SelfWeaponModelTitle">Weapon Model</label>
+								<input id="PlayersWeaponInput" class="max-w-[30rem] bg-white border-gray-200 text-gray-800 focus:border-gray-400 disabled:bg-gray-100 disabled:border-gray-200 disabled:opacity-75 focus:shadow-md focus:border-gray-300 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 appearance-none outline-none w-full min-w-0 p-3 border-2 rounded text-sm transition-all duration-150 shadow-none focus:ring-0" type="text" name="Weapon" id="weapon-model" placeholder="Weapon Model">
+								<input id="PlayersWeaponGive" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" data-translate="SelfWeaponGiveButton" value="Give">
+							</div>
+	
+							<br/>
+							<br/>
+	
+							<div>
+								<p class="text-left" data-translate="SelfWeaponOptionsTitle">Weapon Options</p>
+								<hr style="width: 35.158rem"/>
+								<br/>
+								<input id="PlayersWeaponGiveAll" style="width: 15.46952rem" data-translate="SelfWeaponOptionsGiveAll" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Give All Weapons">
+								<input id="PlayersWeaponTakeAll" style="margin-left: 3.935rem; width: 15.46952rem" data-translate="SelfWeaponOptionsRemoveAll" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Remove All Weapons">
+							</div>
+						</section>
+
+						<section id="Vehicles" class="w-full ml-10 flex flex-col justify-start hidden">
+							<div>
+								<p class="text-left" data-translate="SelfVehicleOptionsTitle">Vehicle Options</p>
+								<hr style="width: 35.158rem"/>
+								<br/>
+								<input id="PlayersFixVehicle" style="width: 15.46952rem" data-translate="SelfVehicleOptionsFix" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Fix Current Vehicle">
+								<input id="PlayersDeleteVehicle" style="margin-left: 3.935rem; width: 15.46952rem" data-translate="SelfVehicleOptionsDelete" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Delete Current Vehicle">
+							</div>
+						</section>
+
+						<section id="Options" class="w-full ml-10 flex flex-col justify-start hidden">
+							<div>
+								<p class="text-left" data-translate="OptionsAdministrationTitle">Administration</p>
+								<hr style="width: 35.158rem"/>
+								<br/>
+								<input id="PlayersKick" style="width: 15.46952rem" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Kick">
+								<input id="PlayersBan" style="margin-left: 3.935rem; width: 15.46952rem" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Ban">
+							</div>
+
+							<br/>
+							<br/>
+
+							<div>
+								<p class="text-left" data-translate="OptionsOthersTitle">Other</p>
+								<hr style="width: 35.158rem"/>
+								<br/>
+								<input id="PlayersTeleport" style="width: 15.46952rem" data-translate="OptionsOthersTeleport" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Teleport">
+								<input id="PlayersFreeze" style="margin-left: 3.935rem; width: 15.46952rem" data-translate="OptionsOthersFreeze" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Freeze">
+							</div>
+						</section>
+					</div>
+
+				</section>
+
+				<section id="Administration" class="w-full bg-transparent flex flex-row hidden" style="margin-top: 9rem">
+					<div class="w-56 h-fit ml-32 p-2.5 rounded-lg flex justify-center flex-col" style="background-color: #1b2430; box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);">
+						<div name="AdministrationOptions" data-translate="AdministrationPlayersBanned" data-section="Banned" class="w-52 h-fit p-1 rounded-lg text-center text-gray-300 cursor-pointer category-item active">
+							Players Banned
+						</div>
+
+						<div name="AdministrationOptions" data-translate="AdministrationEntities" data-section="Entities" class="w-52 h-fit mt-1 p-1 rounded-lg text-center text-gray-300 cursor-pointer category-item">
+							Entities
+						</div>
+
+						<style>
+							.category-item:hover {
+								color: rgb(243 244 246);
+							}
+
+							.category-item.active {
+								color: rgb(243 244 246);
+								background-color: rgb(31 41 55);
+							}
+						</style>
+					</div>
+
+					<section id="Banned" class="w-full flex flex-col justify-start" style="margin-right: 8rem">
+						<div id="BannedLists" class="w-full flex flex-row justify-center">
+							<div id="_bans_" class="p-5 rounded-lg flex flex-col" style="background-color: #1b2430; box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);">
+								
+							</div>
+						</div>
+					</section>
+
+					<section id="Entities" class="w-full ml-10 flex flex-col justify-start hidden">
+						<div>
+							<p class="text-left" data-translate="EntitiesVehicleCleanTitle">Vehicle Clean Options</p>
+							<hr style="width: 35.158rem"/>
+
+							<br/>
+
+							<input id="ClearUnusedVehicles" style="width: 15.46952rem" data-translate="EntitiesVehicleUnused" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Unused Vehicles">
+							<input id="ClearAllVehicles" style="margin-left: 3.935rem; width: 15.46952rem" data-translate="EntitiesVehicleAll" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="All Vehicles">
+						</div>
+
+						<br/>
+
+						<div>
+							<p class="text-left" data-translate="EntitiesAreaCleanTitle">Area Clean Options</p>
+							<hr style="width: 35.158rem"/>
+
+							<br/>
+
+							<input id="ClearAreaPeds" style="width: 15.46952rem" data-translate="EntitiesAreaCleanPeds" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Clean Area Peds">
+							<input id="ClearAreaObjects" style="margin-left: 3.935rem; width: 15.46952rem" data-translate="EntitiesAreaCleanObjects" class="text-sm relative inline-block rounded p-3 uppercase tracking-wide text-sm transition-all duration-150 border border-green-600 bg-green-600 text-green-50 hover:bg-green-700 hover:border-green-800" type="button" value="Clean Area Objects">
+						</div>
+					</section>
+				</section>
+			</div>
+        </div>
+		<script type="module" src="./admin.js"></script>
+		<div id="app"></div>
+	</body>
+</html>
