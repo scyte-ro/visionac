@@ -8,4 +8,6 @@ De asemenea, dorim să anunțăm lansarea publică a codului sursă pentru Visio
 
 Acest leak nu va beneficia de suport de nici un fel, iar unele dintre funcțiile software-ului original nu vor fi disponibile pentru folosire. Nu putem garanta pentru cât timp acest leak va fii funcțional.
 
+***Dacă vor fi depistate mai multe exploituri vom face tot posibilul să le remediem în timp util. De aceea, v-am fi recunoscători daca ne-ați aduce la cunoștință ce și unde am greșit. Acest software este conceput de jucători pentru jucători și suntem siguri că prin colaborare vom putea spune STOP toxicității acestei comunități de gaming.***
+
 VisionAC a fost și este o versiune low-cost, dar eficientă, a celorlalte programe software asemănătoare de pe piață. Credem cu tărie că nu este nevoie să cheltuiești o avere pentru a putea construi o comunitate de gaming, iar din acest motiv încercăm să oferim alternative mai ieftine și la fel de performante pentru diferitele servicii de care aveți nevoie.
